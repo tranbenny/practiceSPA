@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-module.exports = mongoose.model('Item', {
-	value : {type : String, default : ''}
+var ItemSchema = new Schema({
+	text : String,
+	done : Boolean
 });
+
+module.exports = mongoose.model('Item', ItemSchema);
