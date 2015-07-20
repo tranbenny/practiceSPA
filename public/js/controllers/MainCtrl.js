@@ -22,4 +22,13 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 				console.log('Error: ' + data);
 			});
 	};
+
+	$scope.update = function(item) {
+		if (item.done) {
+			$http.put('/api/items' + item.id, { done : false });
+		} else {
+			$http.put('/api/items' + item.id, { done : true });
+		}
+
+	};
 });
