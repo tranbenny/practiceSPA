@@ -1,3 +1,10 @@
+// all CRUD operations
+// GET : get all items
+// POST : add new items
+// GET + ID : get single item
+// PUT: update an item
+// DELETE : delete an item
+
 var Item = require('./models/item');
 
 module.exports = function(app) {
@@ -24,6 +31,15 @@ module.exports = function(app) {
 				}
 				res.json(items);
 			})
+		});
+	});
+
+	app.get('/api/items/:item_id', function(req, res) {
+		Item.findById(req.params.item_id, function(err, item) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(item);
 		});
 	});
 

@@ -25,9 +25,19 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 
 	$scope.update = function(item) {
 		if (item.done) {
-			$http.put('/api/items' + item.id, { done : false });
+			$http.get('/api/items/' + item._id).success(function(data) {
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
 		} else {
-			$http.put('/api/items' + item.id, { done : true });
+			$http.get('/api/items/' + item._id).success(function(data) {
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
 		}
 
 	};
