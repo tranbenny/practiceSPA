@@ -1,6 +1,6 @@
 angular.module('MainCtrl', []).controller('MainController', function($scope, $http) {
 	$scope.tagline = 'Enter to do items here: ';
-	$scope.toDoItem = "";
+	$scope.toDoItem = {};
 
 	$http.get('/api/items').success(function(data) {
 		$scope.items = data;
@@ -14,7 +14,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	$scope.add = function() {
 		$http.post('/api/items', $scope.toDoItem)
 			.success(function(data) {
-				$scope.toDoItem = "";
+				$scope.toDoItem = {};
 				$scope.items = data;
 				console.log(data);
 			})
