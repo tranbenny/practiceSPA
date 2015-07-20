@@ -1,0 +1,22 @@
+{
+  "name": "practiceSPA",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tranbenny/practiceSPA",
+  "authors": [
+    "tranbenny <tran.benny123@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3"
+  }
+}
