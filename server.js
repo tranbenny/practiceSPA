@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var mongoose = require('mongoose');
 
 
 // config
@@ -13,7 +14,7 @@ var db = require('./config/db');
 var port = process.env.PORT || 9000;
 
 // connecting to a mongoDB database
-// mongoose.connect(db.url);
+mongoose.connect(db.MONGOLAB_URI);
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type : 'application/vnd.api+json'}));
