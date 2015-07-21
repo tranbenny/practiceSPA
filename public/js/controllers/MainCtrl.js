@@ -5,7 +5,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	var loadItems = function() {
 		$http.get('/api/items').success(function(data) {
 			$scope.items = data;
-			console.log(data);
+			// console.log(data);
 		})
 		.error(function(data) {
 			console.log('Error: ' + data);
@@ -13,13 +13,12 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	}
 	loadItems();
 
-
 	$scope.add = function() {
 		$http.post('/api/items', $scope.toDoItem)
 			.success(function(data) {
 				$scope.toDoItem = {};
 				$scope.items = data;
-				console.log(data);
+				// console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
@@ -27,16 +26,20 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	};
 
 	$scope.changeStatus = function(item) {
-		if (item.done) {
+		if (item.done === true) {
 			$http.put('/api/items/' + item._id, {done : false}).success(function(data) {
-				console.log(data);
+				console.log("no longer done");
+				loadItems();
+				// console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
 		} else {
 			$http.put('/api/items/' + item._id, {done : true}).success(function(data) {
-				console.log(data);
+				console.log("task finished");
+				loadItems();
+				// console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
