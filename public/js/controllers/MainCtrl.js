@@ -2,13 +2,16 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	$scope.tagline = 'Enter to do items here: ';
 	$scope.toDoItem = {};
 
-	$http.get('/api/items').success(function(data) {
-		$scope.items = data;
-		console.log(data);
-	})
-	.error(function(data) {
-		console.log('Error: ' + data);
-	});
+	var loadItems = function() {
+		$http.get('/api/items').success(function(data) {
+			$scope.items = data;
+			console.log(data);
+		})
+		.error(function(data) {
+			console.log('Error: ' + data);
+		});
+	}
+	loadItems();
 
 
 	$scope.add = function() {
@@ -44,26 +47,21 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	$scope.delete = function(item) {
 		$http.delete('/api/items/' + item._id).success(function(data) {
 			console.log(data);
-			$http.get('/api/items').success(function(data) {
-				$scope.items = data;
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			})
+			loadItems();
 		})
 		.error(function(data) {
-			console.log("Error: " + data)
+			console.log("Error: " + data);
 		});
 	};
-	/*
+	
 	$scope.edit = function(item) {
-		$http.put('/api/items/' + item._id).success(function(data) {
-
+		$http.put('/api/items/' + item._id, {text : item.text}).success(function(data) {
+			console.log(data);
 		})
 		.error(function(data) {
-			console.log('Error: ' + data);
+			console.log("Error: " + data);
 		});
-	};*/
+	};
 
 
 });

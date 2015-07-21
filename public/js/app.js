@@ -1,1 +1,6 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'ItemCtrl', 'ItemService']);
+var app = angular.module('sampleApp', ['ngRoute', 'appRoutes','xeditable', 'MainCtrl', 'ItemCtrl', 'ItemService']);
+
+/*
+app.run(function(editableOptions) {
+	editableOptions.theme = 'bs3';
+}); */
