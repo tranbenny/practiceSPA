@@ -1,3 +1,16 @@
 .done {
     text-decoration: line-through;
 }
+
+#todolist {
+	list-style-type: none;
+
+}
+
+#toDoSection {
+	margin-top: -20px;
+}
+
+#addItem {
+	margin-bottom: 20px;
+}
