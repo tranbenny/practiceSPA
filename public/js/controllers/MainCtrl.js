@@ -24,21 +24,28 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	};
 
 	$scope.update = function(item) {
-		if (item.done) {
-			$http.put('/api/items/' + item._id, {done : false}).success(function(data) {
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
-		} else {
-			$http.put('/api/items/' + item._id, {done : true}).success(function(data) {
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
-		}
-
+		$http.put('/api/items/' + item._id).success(function(data) {
+			console.log(data);
+		})
+		.error(function(data) {
+			console.log('Error: ' + data);
+		});
 	};
+
+	$scope.delete = function(item) {
+		$http.delete('/api/items/' + item._id).success(function(data) {
+			console.log(data);
+			$http.get('/api/items').success(function(data) {
+				$scope.items = data;
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			})
+		})
+		.error(function(data) {
+			console.log("Error: " + data)
+		});
+	}
+
+
 });

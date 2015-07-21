@@ -62,6 +62,17 @@ module.exports = function(app) {
 		})
 	});	
 
+	app.delete('/api/items/:item_id', function(req, res) {
+		Item.remove({
+			_id : req.params.item_id
+		}, function(err, item) {
+			if (err) {
+				res.send(err);
+			}
+			res.send({message: "Successfully deleted"});
+		});
+	});
+
 	// route to handle all the angular routes
 	app.get('*', function(req, res) {
 		res.sendfile('./public/views/index.html');
