@@ -48,10 +48,9 @@ module.exports = function(app) {
 			if (err) {
 				res.send(err);
 			}
-			if (item.done) {
-				item.done = false;
-			} else {
-				item.done = true;
+			for (var prop in req.body) {
+				// console.log(prop);
+				item[prop] = req.body[prop];
 			}
 			item.save(function(err) {
 				if (err) {
