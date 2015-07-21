@@ -43,6 +43,25 @@ module.exports = function(app) {
 		});
 	});
 
+	app.put('/api/items/:item_id', function(req, res) {
+		Item.findById(req.params.item_id, function(err, item) {
+			if (err) {
+				res.send(err);
+			}
+			if (item.done) {
+				item.done = false;
+			} else {
+				item.done = true;
+			}
+			item.save(function(err) {
+				if (err) {
+					res.send(err);
+				}
+				res.json({ message : 'task done!'})
+			});
+		})
+	});	
+
 	// route to handle all the angular routes
 	app.get('*', function(req, res) {
 		res.sendfile('./public/views/index.html');

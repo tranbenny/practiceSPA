@@ -25,14 +25,14 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 
 	$scope.update = function(item) {
 		if (item.done) {
-			$http.get('/api/items/' + item._id).success(function(data) {
+			$http.put('/api/items/' + item._id, {done : false}).success(function(data) {
 				console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
 		} else {
-			$http.get('/api/items/' + item._id).success(function(data) {
+			$http.put('/api/items/' + item._id, {done : true}).success(function(data) {
 				console.log(data);
 			})
 			.error(function(data) {
