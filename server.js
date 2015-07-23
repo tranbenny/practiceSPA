@@ -7,6 +7,8 @@ var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 
+// sets the default node environment to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // config
 
