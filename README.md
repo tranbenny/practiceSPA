@@ -1,8 +1,13 @@
-# SPA To Do List 
-Performs basic CRUD operations in a to do list app
-deployed on heroku
+# To Do List 
+Deployed on Heroku: http://polar-chamber-3028.herokuapp.com/
 
-# Functionality (to be added)
-user sign up, custom to do lists for registered users,
-add date property to items,
-edit website layout
+# Tools:
+AngularJS: configures front end views <br />
+Node.js/Express: configures API routes to communicate with database <br />
+MongoDB: NoSQL database storing todo items
+
+# Functionality/Features (To be added):
+User sign up with custom lists for registered users <br />
+Add Date property to to do list items <br />
+Edit website layout <br />
+Create notification/reminder system 
