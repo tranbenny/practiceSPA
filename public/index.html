@@ -16,10 +16,11 @@
 
 </head>
 
-<body ng-app="sampleApp" ng-controller="ItemController">
-	<nav id="mainNav" class="navbar navbar-inverse">
+<body ng-app="sampleApp" ng-controller="UserController">
+	<nav id="mainNav" class="navbar">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/">To Do List</a>
+			<p> Welcome {{ user }} !</p>
 		</div>
 	</nav>
 
@@ -35,6 +36,7 @@
 <script type="text/javascript" src="libs/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="libs/angular-xeditable/dist/js/xeditable.js"></script>
 
+<script type="text/javascript" src="js/controllers/UserCtrl.js"></script>
 <script type="text/javascript" src="js/controllers/MainCtrl.js"></script>
 <script type="text/javascript" src="js/controllers/ItemCtrl.js"></script>
 <script type="text/javascript" src="js/services/ItemService.js"></script>

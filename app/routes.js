@@ -6,6 +6,7 @@
 // DELETE : delete an item
 
 var Item = require('./models/item');
+var User = require('./models/user');
 
 module.exports = function(app) {
 	app.get('/api/items', function(req, res) {
@@ -69,6 +70,15 @@ module.exports = function(app) {
 				res.send(err);
 			}
 			res.send({message: "Successfully deleted"});
+		});
+	});
+
+	app.get('/api/users', function(req, res) {
+		User.find(function(err, users) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(users);
 		});
 	});
 
