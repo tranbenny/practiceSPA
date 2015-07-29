@@ -1,16 +1,20 @@
-angular.module('UserCtrl', []).controller('UserController', function($scope) {
+angular.module('UserCtrl', []).controller('UserController', function($scope, $http) {
 	$scope.tagline = 'This works too'; 
-	$scope.user = "Guest";
 
 
 
 	var loadGuestUser = function() {
 		$http.get('/api/users').success(function(data) {
-			$scope.user = data;
+			$scope.users = data;
+			findFirstUser();
 		}).error(function(data) {
 			console.log("Error: " + data);
 		});
 	};
 
-	// loadGuestUser();
+	var findFirstUser = function() {
+		$scope.user = $scope.users[0].name;
+	};
+
+	loadGuestUser();
 });

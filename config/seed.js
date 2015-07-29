@@ -18,9 +18,10 @@ Item.find({}).remove(function() {
 	});
 });
 
+/*
 User.find({}).remove(function() {
 	User.create({
 		name : "Guest",
 		email : "example@gmail.com"
 	});
-});
+}); */
