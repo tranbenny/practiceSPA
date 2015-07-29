@@ -23,6 +23,10 @@ mongoose.connection.on('error', function(err) {
 	process.exit(-1);
 });
 
+if (db.seedDB) {
+	require('./config/seed');
+} 
+
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type : 'application/vnd.api+json'}));
 app.use(bodyParser.urlencoded({extended: true}));
