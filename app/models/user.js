@@ -7,6 +7,7 @@ var UserSchema = new Schema({
 	toDoItems : {
 		text : String,
 		done : Boolean
+		// test comment
 	}
 });
 
